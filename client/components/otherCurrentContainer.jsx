@@ -10,7 +10,6 @@ const OtherCurrentContainer = ({ otherCurrent }) => {
 
     // iterate through up to 5 past current entries from other users
     for(let i = 0; i < otherCurrent.length; i++) {
-        // const { title, author, genre } = otherCurrent[i];
         otherCurrentElements.push(
             <CurrentEntry
                 title={otherCurrent[i].title}
