@@ -1,4 +1,4 @@
 node_modules/
-build
+build/
 
 database/starwars_postgres_create.sql
