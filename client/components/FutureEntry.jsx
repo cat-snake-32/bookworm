@@ -10,22 +10,9 @@ import TextField from '@mui/material/TextField';
 class FutureEntry extends Component {
   constructor(props) {
     super(props);
-
-    //any additional state would go here
-    //this.state = {value: ''};
-    //bind functions
-
-    //this.handleChange = this.handleChange.bind(this);
   }
 
-//   // title= {this.props.current[i].title}
-//   // author= {this.props.current[i].author}
-//   // genre= {this.props.current[i].genre}
-//   //each entry has access to these as props
-
-
 render() {
-  
   return (
     <Box
       component="form"
@@ -36,9 +23,6 @@ render() {
       autoComplete="off"
     >
     <div>
-      {/* <h3>title: {this.props.title }</h3>
-      <h3>author: {this.props.author}</h3>
-      <h3>genre: {this.props.genre} </h3> */}
       <TextField
           id="outlined-read-only-input"
           label="Title: "
@@ -185,8 +169,6 @@ render() {
 //         <Button variant="contained">Submit</Button>
 //       <Button variant="outlined">Cancel</Button>
 //       </div>
-      
-      
 //     </Box>
 //   ) 
 // }

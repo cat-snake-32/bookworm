@@ -1,4 +1,5 @@
-
+// This file seems to hold functions that are currently being copy/pasted into other files
+// Eventually refactor this so that each file *imports* this one directly
 
 // FETCH REQUESTS
 
@@ -173,10 +174,9 @@ deleteBookFetch(readinglistid) {
     }).catch(err => console.log('Problem with deleteBookFetch method: ERROR:', err));
 }
 
-
 // FETCHES FOR /reviews!!!!!!-------------------------------------------->
 
-// ADD AN REVIEW
+// ADD A REVIEW
 // ROUTE: PATCH reviews/:id
 // query param "id" = readingListId
 // body: review as string format
