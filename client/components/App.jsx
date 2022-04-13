@@ -1,22 +1,7 @@
 import React, { Component } from "react";
-import CurrentContainer from './CurrentContainer';
-import FutureContainer from './FutureContainer';
-import PastContainer from './PastContainer';
-import sampleState from './sampleState';
-import { createTheme } from '@mui/material/styles';
-
-// //more imports?
-const theme = createTheme({
-  palette: {
-    type: 'light',
-    primary: {
-      main: '#943fb5',
-    },
-    secondary: {
-      main: '#007ef5',
-    },
-  },
-});
+import CurrentContainer from './current/CurrentContainer';
+import FutureContainer from './future/FutureContainer';
+import PastContainer from './past/PastContainer';
 
 class App extends Component {
   constructor(props) {
@@ -39,36 +24,6 @@ class App extends Component {
     // live data
     this.fetchAll();
   }
-    // const current = [];
-//     const past = [];
-//     const future = [];
-//     const otherCurrent = [];
-//     const otherPast = [];
-//     const otherFuture = [];    
-//     // // iterate through sampleState data
-//     sampleState.forEach(obj => {
-//       if(obj.user_id === 1 && obj.status === 'current') {
-//         current.push(obj);
-//       }
-//       else if(obj.user_id === 1 && obj.status === 'past') {
-//         past.push(obj)
-//         }
-//         else if(obj.user_id === 1 && obj.status === 'future') {
-//           future.push(obj);
-//         }
-//         else if(obj.user_id !== 1 && obj.status === 'current') {
-//           otherCurrent.push(obj);
-//         }
-//         else if(obj.user_id !== 1 && obj.status === 'past') {
-//           otherPast.push(obj);
-//         }
-//         else if(obj.user_id !== 1 && obj.status === 'future') {
-//           otherFuture.push(obj);
-//         }
-//       });
-// //     // re-render using sampleState data
-//     this.setState({ current: current, past: past, future: future, otherCurrent: otherCurrent, otherPast: otherPast, otherFuture: otherFuture});
-//   };
 
   fetchAll() {
     fetch('./books/all')
@@ -147,7 +102,7 @@ addBookFetch(userid, title, author, genre, genreid, status, statusid, recommend,
   render () {
 
     if(this.state.hasError) {
-      return <h1>Somthing went wrong with state, hasError</h1>
+      return <h1>Something went wrong with state, hasError</h1>
     };
     
     const { current, past, future, otherCurrent, otherPast, otherFuture } = this.state;
@@ -158,10 +113,10 @@ addBookFetch(userid, title, author, genre, genreid, status, statusid, recommend,
         <h1>BOOKWORM</h1>
         <div className= "currentFutureDiv" id= "theDiv">
           <CurrentContainer current={current} otherCurrent={otherCurrent} addBookFetch={this.addBookFetch}/>
-          <FutureContainer future= {future} otherFuture={otherFuture}/>
+          <FutureContainer future= {future} otherFuture={otherFuture} addBookFetch={this.addBookFetch}/>
         </div>
         <div className= "pastDiv">
-          <PastContainer past={past} otherPast={otherPast} />
+          <PastContainer past={past} otherPast={otherPast} addBookFetch={this.addBookFetch} />
         </div>
       </div>    
     )

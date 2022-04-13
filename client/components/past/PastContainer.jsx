@@ -25,29 +25,7 @@ class PastContainer extends Component {
     this.handleCancel = this.handleCancel.bind(this);
   }
  
-//   //could iterate through the prop objects and set state again
-
-//   //i have access to prop that passes the objects where user_id is 1 and status is current
-//     //reading_list._id
-//     // user_id: 1
-//     // username
-//     // book_id
-//     // title
-//     // author
-//     // genre_id
-//     // genre
-//     // status_id
-//     // status: current
-//     // recommend
-//     // review
-    
-//   // componentDidMount(){
-    
-//   // }
-
-//   //entriesDisplay( this.props.current )
-
-//   //for each object in current prop, 
+//  
 
   addBook(){
     // if(this.state.added === false){
@@ -86,12 +64,12 @@ class PastContainer extends Component {
     const { hidden } = this.state;
     const pastEntries = [];
 
-    // if(this.state.submit === true){
-    //   pastEntries.push(
-    //     <PastEntry handleSubmit={this.handleSubmit}/>
-    //   )
-    //   this.state.addBook = false;
-    // }
+    if(this.state.submit === true){
+      pastEntries.push(
+        <PastEntry handleSubmit={this.handleSubmit}/>
+      )
+      this.state.addBook = false;
+    }
     // this.state.cancel === false
     if(this.state.added === true) {
       pastEntries.push(

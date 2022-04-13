@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import CurrentEntry from './CurrentEntry';
-import BlankEntry from './BlankEntry';
+import BlankEntry from './BlankCurrentEntry';
 import Button from '@mui/material/Button';
-import OtherCurrentContainer from './OtherCurrentContainer';
+import OtherCurrentContainer from './otherCurrentContainer';
 
 // //more imports?
 
@@ -16,7 +16,7 @@ class CurrentContainer extends Component {
       view: true,
       submit: false,
       cancel: false,
-      hidden: true
+      hidden: true,
     }
     //bind functions
     this.addBook = this.addBook.bind(this);
@@ -25,35 +25,8 @@ class CurrentContainer extends Component {
     this.handleCancel = this.handleCancel.bind(this);
   }
 
-//   //could iterate through the prop objects and set state again
-
-//   //i have access to prop that passes the objects where user_id is 1 and status is current
-//     //reading_list._id
-//     // user_id: 1
-//     // username
-//     // book_id
-//     // title
-//     // author
-//     // genre_id
-//     // genre
-//     // status_id
-//     // status: current
-//     // recommend
-//     // review
-    
-//   // componentDidMount(){
-    
-//   // }
-
-//   //entriesDisplay( this.props.current )
-
-//   //for each object in current prop, 
-
   addBook(){
-    // if(this.state.added === false){
-    //   // this.state.added = true
       this.setState({added: true})
-    // }
   }
 
   viewOtherCurrent(){
@@ -122,7 +95,6 @@ class CurrentContainer extends Component {
           {/* for each object, render an entry component, pass down the  */}
           {/* <button onClick= {this.addBook} id= 'addButton'>Add Book</button> */}
           <h2>CURRENT READS</h2>
-          {"\n"}
           <Button onClick= {this.addBook} className='addBooksButton' id= 'addButton' size="small" color="secondary" variant="contained">Add Book</Button>
           {/* <BlankEntry /> */}
           { currentEntries }

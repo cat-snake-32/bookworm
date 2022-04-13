@@ -84,6 +84,11 @@ function BlankEntry(props) {
     },
   ];
 
+  // const saveFutureBook = () => {
+  //   props.addBookFetch(1, title, author, undefined, genre, undefined, 3)
+  //   props.handleCancel();
+  // }
+
   const saveBook = () => {
     // if (title === '') setTitleError('required');
     // if (author === '') setAuthorError('required');

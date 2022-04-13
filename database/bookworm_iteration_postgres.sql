@@ -9,6 +9,7 @@ SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
 
+DROP TABLE IF EXISTS public.users CASCADE;
 CREATE TABLE public.users (
 	"_id" serial NOT NULL,
 	"username" varchar(255) NOT NULL UNIQUE,
@@ -21,7 +22,7 @@ CREATE TABLE public.users (
 );
 
 
-
+DROP TABLE IF EXISTS public.reading_lists CASCADE;
 CREATE TABLE public.reading_lists (
 	"_id" serial NOT NULL,
 	"user_id" serial NOT NULL,
@@ -35,7 +36,7 @@ CREATE TABLE public.reading_lists (
 );
 
 
-
+DROP TABLE IF EXISTS public.books CASCADE;
 CREATE TABLE public.books (
 	"_id" serial NOT NULL,
 	"title" varchar(255) NOT NULL,
@@ -47,7 +48,7 @@ CREATE TABLE public.books (
 );
 
 
-
+DROP TABLE IF EXISTS public.read_statuses CASCADE;
 CREATE TABLE public.read_statuses (
 	"_id" serial NOT NULL,
 	"status" varchar(255) NOT NULL,
@@ -57,7 +58,7 @@ CREATE TABLE public.read_statuses (
 );
 
 
-
+DROP TABLE IF EXISTS public.genres CASCADE;
 CREATE TABLE public.genres (
 	"_id" serial NOT NULL,
 	"genre" varchar(255),
@@ -132,4 +133,23 @@ INSERT INTO public.reading_lists VALUES(14, 5, 8, 3, TRUE, NULL);
 INSERT INTO public.reading_lists VALUES(15, 7, 7, 2, FALSE, NULL);
 INSERT INTO public.reading_lists VALUES(16, 7, 10, 1, TRUE, 'I LOVED this book!');
 
+
+select setval('public.users__id_seq', 9, false);
+select setval('public.reading_lists__id_seq', 17, false);
+select setval('public.books__id_seq', 12, false);
+--the next two seem unnecessary, because those are pre-determined db options and there shouldnt be a frontend option to add values here
+-- select setval('public.read_statuses_seq', 4, false);
+-- select setval('public.genres_seq', 14, false);
+
+
+-- Johns URI:
 -- postgres://dkkcsyzq:kmL7sCZe-lVTlpTeLLWeGMTfmUQK8ejp@batyr.db.elephantsql.com/dkkcsyzq
+
+-- Carlys URI 
+-- postgres://ntqrlwui:nJ-2TwKBWoKpxBEv1u0z1SQXAh_X6UoP@rajje.db.elephantsql.com/ntqrlwui
+
+-- Invoke psql -d <url from elephantSQL> -f starwars_postgres_create.sql
+-- drop table if exists
+
+-- DROP TABLE [IF EXISTS] table_name [CASCADE | RESTRICT];
+-- DROP TABLE [IF EXISTS] table_name [CASCADE | RESTRICT];

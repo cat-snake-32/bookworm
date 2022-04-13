@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import FutureEntry from './FutureEntry';
-import BlankEntry from './BlankEntry';
+import BlankFutureEntry from './BlankFutureEntry';
 import Button from '@mui/material/Button';
 //import OtherCurrentContainer from './OtherCurrentContainer';
 
@@ -16,7 +16,8 @@ class FutureContainer extends Component {
       view: true,
       submit: false,
       cancel: false,
-      hidden: true
+      hidden: true,
+      //status: 0
     }
     //bind functions
     this.addBook = this.addBook.bind(this);
@@ -25,35 +26,9 @@ class FutureContainer extends Component {
     this.handleCancel = this.handleCancel.bind(this);
   }
 
-//   //could iterate through the prop objects and set state again
-
-//   //i have access to prop that passes the objects where user_id is 1 and status is current
-//     //reading_list._id
-//     // user_id: 1
-//     // username
-//     // book_id
-//     // title
-//     // author
-//     // genre_id
-//     // genre
-//     // status_id
-//     // status: current
-//     // recommend
-//     // review
-    
-//   // componentDidMount(){
-    
-//   // }
-
-//   //entriesDisplay( this.props.current )
-
-//   //for each object in current prop, 
-
   addBook(){
-    // if(this.state.added === false){
-    //   // this.state.added = true
       this.setState({added: true})
-    // }
+      this.handleSubmit();
   }
 
   // viewOtherCurrent(){
@@ -61,16 +36,8 @@ class FutureContainer extends Component {
   //   else this.setState({ hidden: true });
   // }
 
-//   // deleteEntry();
-//   // //this is a function that deletes the entry from the current reads section, also removing it from the DB
-
-//   // updateEntry();
-//     //this is a function that moves a book from the current reading list to the have read list
-
-//   //{ this.state.urls && this.state.urls.map((url, idx) => <FeedItem key={idx} url={url} /> )}
-
   handleSubmit(e){
-    //e.preventDefault();
+    e.preventDefault();
     this.setState({submit: true})
   }
 
@@ -81,7 +48,7 @@ class FutureContainer extends Component {
 
   render () {
       
-    //const { current, past, future, otherCurrent, otherPast, otherFuture } = this.props;
+    const { current, past, future, otherCurrent, otherPast, otherFuture, addBookFetch } = this.props;
     // const { hidden } = this.state;
     const futureEntries = [];
 
@@ -94,8 +61,8 @@ class FutureContainer extends Component {
     // this.state.cancel === false
     if(this.state.added === true) {
       futureEntries.push(
-        <BlankEntry handleCancel={this.handleCancel} handleSubmit= {this.handleSubmit}/>
-      ) 
+        <BlankFutureEntry handleCancel={this.handleCancel} handleSubmit={this.handleSubmit} addBookFetch= {addBookFetch} />
+      )
     }
     // handleSubmit= { this.handleSubmit } handleCancel= { this.handleCancel }
   
