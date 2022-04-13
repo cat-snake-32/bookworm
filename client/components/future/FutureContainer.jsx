@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import FutureEntry from './FutureEntry';
-import BlankEntry from './BlankEntry';
+import BlankFutureEntry from './BlankFutureEntry';
 import Button from '@mui/material/Button';
 //import OtherCurrentContainer from './OtherCurrentContainer';
 
@@ -12,9 +12,15 @@ class FutureContainer extends Component {
       view: true,
       submit: false,
       cancel: false,
+<<<<<<< HEAD:client/components/future/FutureContainer.jsx
+      hidden: true,
+      //status: 0
+    }
+=======
       hidden: true
     };
 
+>>>>>>> dev:client/components/FutureContainer.jsx
     //bind functions
     this.addBook = this.addBook.bind(this);
     //this.viewOtherCurrent = this.viewOtherCurrent.bind(this);
@@ -24,10 +30,21 @@ class FutureContainer extends Component {
 
   addBook(){
       this.setState({added: true})
+<<<<<<< HEAD:client/components/future/FutureContainer.jsx
+      this.handleSubmit();
   }
 
+  // viewOtherCurrent(){
+  //   if(this.state.hidden === true) this.setState({ hidden: false });
+  //   else this.setState({ hidden: true });
+  // }
+
+=======
+  }
+
+>>>>>>> dev:client/components/FutureContainer.jsx
   handleSubmit(e){
-    //e.preventDefault();
+    e.preventDefault();
     this.setState({submit: true})
   }
 
@@ -37,6 +54,12 @@ class FutureContainer extends Component {
   }
 
   render () {
+<<<<<<< HEAD:client/components/future/FutureContainer.jsx
+      
+    const { current, past, future, otherCurrent, otherPast, otherFuture, addBookFetch } = this.props;
+    // const { hidden } = this.state;
+=======
+>>>>>>> dev:client/components/FutureContainer.jsx
     const futureEntries = [];
 
     if(this.state.submit === true){
@@ -47,8 +70,8 @@ class FutureContainer extends Component {
     }
     if(this.state.added === true) {
       futureEntries.push(
-        <BlankEntry handleCancel={this.handleCancel} handleSubmit= {this.handleSubmit}/>
-      ) 
+        <BlankFutureEntry handleCancel={this.handleCancel} handleSubmit={this.handleSubmit} addBookFetch= {addBookFetch} />
+      )
     }
   
     for(let i=0; i<this.props.future.length; i++){

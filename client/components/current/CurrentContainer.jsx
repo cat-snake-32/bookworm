@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import CurrentEntry from './CurrentEntry';
-import BlankEntry from './BlankEntry';
+import BlankEntry from './BlankCurrentEntry';
 import Button from '@mui/material/Button';
-import OtherCurrentContainer from './OtherCurrentContainer';
+import OtherCurrentContainer from './otherCurrentContainer';
 
 class CurrentContainer extends Component {
   constructor(props) {
@@ -12,9 +12,14 @@ class CurrentContainer extends Component {
       view: true,
       submit: false,
       cancel: false,
+<<<<<<< HEAD:client/components/current/CurrentContainer.jsx
+      hidden: true,
+    }
+=======
       hidden: true
     };
 
+>>>>>>> dev:client/components/CurrentContainer.jsx
     //bind functions
     this.addBook = this.addBook.bind(this);
     this.viewOtherCurrent = this.viewOtherCurrent.bind(this);
@@ -22,7 +27,11 @@ class CurrentContainer extends Component {
   }
 
   addBook(){
+<<<<<<< HEAD:client/components/current/CurrentContainer.jsx
+      this.setState({added: true})
+=======
     this.setState({ added: true });
+>>>>>>> dev:client/components/CurrentContainer.jsx
   }
 
   viewOtherCurrent(){
@@ -63,7 +72,6 @@ class CurrentContainer extends Component {
     return (
         <div className="currentContainer" id="currentCon">
           <h2>CURRENT READS</h2>
-          {"\n"}
           <Button onClick= {this.addBook} className='addBooksButton' id= 'addButton' size="small" color="secondary" variant="contained">Add Book</Button>
           { currentEntries }
            <div>
