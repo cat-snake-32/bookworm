@@ -4,21 +4,23 @@ import BlankFutureEntry from './BlankFutureEntry';
 import Button from '@mui/material/Button';
 //import OtherCurrentContainer from './OtherCurrentContainer';
 
-// //more imports?
-
 class FutureContainer extends Component {
   constructor(props) {
     super(props);
-
-    //any additional state would go here
     this.state = {
       added: false,
       view: true,
       submit: false,
       cancel: false,
+<<<<<<< HEAD:client/components/future/FutureContainer.jsx
       hidden: true,
       //status: 0
     }
+=======
+      hidden: true
+    };
+
+>>>>>>> dev:client/components/FutureContainer.jsx
     //bind functions
     this.addBook = this.addBook.bind(this);
     //this.viewOtherCurrent = this.viewOtherCurrent.bind(this);
@@ -28,6 +30,7 @@ class FutureContainer extends Component {
 
   addBook(){
       this.setState({added: true})
+<<<<<<< HEAD:client/components/future/FutureContainer.jsx
       this.handleSubmit();
   }
 
@@ -36,6 +39,10 @@ class FutureContainer extends Component {
   //   else this.setState({ hidden: true });
   // }
 
+=======
+  }
+
+>>>>>>> dev:client/components/FutureContainer.jsx
   handleSubmit(e){
     e.preventDefault();
     this.setState({submit: true})
@@ -47,9 +54,12 @@ class FutureContainer extends Component {
   }
 
   render () {
+<<<<<<< HEAD:client/components/future/FutureContainer.jsx
       
     const { current, past, future, otherCurrent, otherPast, otherFuture, addBookFetch } = this.props;
     // const { hidden } = this.state;
+=======
+>>>>>>> dev:client/components/FutureContainer.jsx
     const futureEntries = [];
 
     if(this.state.submit === true){
@@ -58,13 +68,11 @@ class FutureContainer extends Component {
       )
       this.state.addBook = false;
     }
-    // this.state.cancel === false
     if(this.state.added === true) {
       futureEntries.push(
         <BlankFutureEntry handleCancel={this.handleCancel} handleSubmit={this.handleSubmit} addBookFetch= {addBookFetch} />
       )
     }
-    // handleSubmit= { this.handleSubmit } handleCancel= { this.handleCancel }
   
     for(let i=0; i<this.props.future.length; i++){
       futureEntries.push(
@@ -75,39 +83,15 @@ class FutureContainer extends Component {
         />
       )
     }
-
-    //console.log(currentEntries);
-
-//     // togging visibility style property of OtherCurrentContainer based on view boolean from local state
-//     // let otherCurrentView = { visibility: 'hidden' };
-//     // this.state.hidden ? otherCurrentView : otherCurrentView = { visibility: 'hidden' };
     
     return (
         <div className="futureContainer">
-          {/* { this.props.current} */}
-          {/* for each object, render an entry component, pass down the  */}
-          {/* <button onClick= {this.addBook} id= 'addButton'>Add Book</button> */}
           <h2>NEXT READS</h2>
           <Button onClick= {this.addBook} className='addBooksButton' id= 'addButton' size="small" color="secondary" variant="contained">Add Book</Button>
-          {/* <BlankEntry /> */}
           { futureEntries }
-           {/* <div>
-             <button onClick={this.viewOtherCurrent} id='viewOtherCurrent' > + </button>
-             <label>What My Friends Are Reading</label>
-           </div > */}
-           {/* <div style={{ visibility: hidden ? "hidden" : "visible" }}>
-             <OtherCurrentContainer 
-                otherCurrent={this.props.otherCurrent} s
-            />
-            
-          </div> */}
-          {/* //<h1>hey</h1> */}
         </div>
     )
-          
    } 
-
  }
-
 
 export default FutureContainer;

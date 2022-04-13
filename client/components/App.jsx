@@ -13,8 +13,9 @@ class App extends Component {
       otherCurrent: [],
       otherPast: [],
       otherFuture: []
-    }
-    //any function binding happens here
+    };
+
+    // bind functions
     this.fetchAll = this.fetchAll.bind(this);
     this.addBookFetch = this.addBookFetch.bind(this);
   }
@@ -25,24 +26,25 @@ class App extends Component {
     this.fetchAll();
   }
 
+  // updates state to reflect current state of database
   fetchAll() {
     fetch('./books/all')
     .then(res => res.json())
     .then(data => {
       // create output arrays
-      const current = [];
-      const past = [];
-      const future = [];
-      const otherCurrent = [];
-      const otherPast = [];
-      const otherFuture = [];
-      // iterate through data
+      const current = []; // current reads
+      const past = []; // past reads
+      const future = []; // next reads
+      const otherCurrent = []; // friends' current reads
+      const otherPast = []; // friends' past reads
+      const otherFuture = []; // friends' next reads
+      // iterate through data returned from fetch
       data.forEach(obj => {
         if(obj.userid === 1 && obj.status === 'present') {
           current.push(obj);
         }
         else if(obj.userid === 1 && obj.status === 'past') {
-          past.push(obj)
+          past.push(obj);
           }
           else if(obj.userid === 1 && obj.status === 'future') {
             future.push(obj);
@@ -56,28 +58,29 @@ class App extends Component {
           else if(obj.userid !== 1 && obj.status === 'future') {
             otherFuture.push(obj);
           }
-        });
-        // do we need to return this.setState
-        this.setState({ current: current, past: past, future: future, otherCurrent: otherCurrent, otherPast: otherPast, otherFuture: otherFuture});
+      });
+      
+      // update state
+      this.setState({ current: current, past: past, future: future, otherCurrent: otherCurrent, otherPast: otherPast, otherFuture: otherFuture});
       }).catch(err => console.log('Problem with fetchAll method: ERROR:', err));
+}
 
-};
-
-addBookFetch(userid, title, author, genre, genreid, status, statusid, recommend, review) {
+// add a book to the database
+addBookFetch(userid, title, author, genre, genreId, status, statusId, recommend, review) {
   console.log(`------> inside of addBookFetch Function`);
   // declare requestBody
   const requestBody = {
-      title: title,
-      author: author,
-      genre: genre,
-      genreId: genreid,
-      status: status,
-      statusId: statusid,
-      recommend: recommend,
-      review: review
-  }
+    title,
+    author,
+    genre,
+    genreId,
+    status,
+    statusId,
+    recommend,
+    review,
+  };
   console.log(`-----> after requestBody declared, ${requestBody}`);
-  console.log(`------> userId: ${userid}`);
+  console.log(`-----> userId: ${userid}`);
   fetch(`books/${userid}`, {
       method: 'POST',
       body: JSON.stringify(requestBody),
@@ -89,29 +92,31 @@ addBookFetch(userid, title, author, genre, genreid, status, statusid, recommend,
   .then(response => {
     // printing response from server
     console.log(`successful addBookFetch request - should get reading list item: ${response}`);
-    // fetch request for books/all - that will re-render state
+    // update state
     this.fetchAll();
-  
   }).catch(err => console.log('Problem with fetchAll method: ERROR:', err));
 };
 
 
   
-//   // code each container and its components and its logic
-  
+  // render the App, containing the containers representing currently reading, next to read, and past reads.
   render () {
+<<<<<<< HEAD
 
     if(this.state.hasError) {
       return <h1>Something went wrong with state, hasError</h1>
     };
     
+=======
+    // if(this.state.hasError) {
+    //   return <h1>Somthing went wrong with state, hasError</h1>
+    // };
+>>>>>>> dev
     const { current, past, future, otherCurrent, otherPast, otherFuture } = this.state;
-    
     return (
-        // <div className="mainContainer">
-      <div className= "divInMain">
+      <div className= "app">
         <h1>BOOKWORM</h1>
-        <div className= "currentFutureDiv" id= "theDiv">
+        <div className= "currentFutureDiv" id="theDiv">
           <CurrentContainer current={current} otherCurrent={otherCurrent} addBookFetch={this.addBookFetch}/>
           <FutureContainer future= {future} otherFuture={otherFuture} addBookFetch={this.addBookFetch}/>
         </div>

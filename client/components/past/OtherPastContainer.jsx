@@ -1,9 +1,9 @@
 import React from "react";
 import PastEntry from './PastEntry';
 
+// should 'otherPast' be props?
 const OtherPastContainer = ({ otherPast }) => {
     const otherPastElements = [];
-
     // iterate through up to past current entries from other users
     for(let i = 0; i < otherPast.length; i++) {
         otherPastElements.push(

@@ -3,26 +3,13 @@ import React, { Component } from "react";
 // import OtherCurrentContainer from './OtherCurrentContainer';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
-// import MenuItem from '@mui/material/MenuItem';
-// import InputAdornment from '@mui/material/InputAdornment';
-// import Button from '@mui/material/Button';
 
+
+// Since this is stateless, we don't need a constructor.
 class PastEntry extends Component {
   constructor(props) {
     super(props);
-
-    //any additional state would go here
-    //this.state = {value: ''};
-    //bind functions
-
-    //this.handleChange = this.handleChange.bind(this);
   }
-
-//   // title= {this.props.current[i].title}
-//   // author= {this.props.current[i].author}
-//   // genre= {this.props.current[i].genre}
-//   //each entry has access to these as props
-
 
 render() {
   
