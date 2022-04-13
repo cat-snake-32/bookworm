@@ -2,3 +2,4 @@ node_modules/
 build/
 
 database/starwars_postgres_create.sql
+.env
