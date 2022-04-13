@@ -1,22 +1,7 @@
 import React, { Component } from "react";
-import CurrentContainer from './CurrentContainer';
-import FutureContainer from './FutureContainer';
-import PastContainer from './PastContainer';
-import sampleState from './sampleState';
-import { createTheme } from '@mui/material/styles';
-
-// //more imports?
-const theme = createTheme({
-  palette: {
-    type: 'light',
-    primary: {
-      main: '#943fb5',
-    },
-    secondary: {
-      main: '#007ef5',
-    },
-  },
-});
+import CurrentContainer from './current/CurrentContainer';
+import FutureContainer from './future/FutureContainer';
+import PastContainer from './past/PastContainer';
 
 class App extends Component {
   constructor(props) {
@@ -116,19 +101,27 @@ addBookFetch(userid, title, author, genre, genreId, status, statusId, recommend,
   
   // render the App, containing the containers representing currently reading, next to read, and past reads.
   render () {
+<<<<<<< HEAD
+
+    if(this.state.hasError) {
+      return <h1>Something went wrong with state, hasError</h1>
+    };
+    
+=======
     // if(this.state.hasError) {
     //   return <h1>Somthing went wrong with state, hasError</h1>
     // };
+>>>>>>> dev
     const { current, past, future, otherCurrent, otherPast, otherFuture } = this.state;
     return (
       <div className= "app">
         <h1>BOOKWORM</h1>
         <div className= "currentFutureDiv" id="theDiv">
           <CurrentContainer current={current} otherCurrent={otherCurrent} addBookFetch={this.addBookFetch}/>
-          <FutureContainer future= {future} otherFuture={otherFuture}/>
+          <FutureContainer future= {future} otherFuture={otherFuture} addBookFetch={this.addBookFetch}/>
         </div>
         <div className= "pastDiv">
-          <PastContainer past={past} otherPast={otherPast} />
+          <PastContainer past={past} otherPast={otherPast} addBookFetch={this.addBookFetch} />
         </div>
       </div>    
     )

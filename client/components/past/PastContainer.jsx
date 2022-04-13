@@ -20,6 +20,11 @@ class PastContainer extends Component {
     this.handleCancel = this.handleCancel.bind(this);
   }
  
+<<<<<<< HEAD:client/components/past/PastContainer.jsx
+//  
+
+=======
+>>>>>>> dev:client/components/PastContainer.jsx
   addBook(){
       this.setState({added: true})
   }
@@ -39,6 +44,16 @@ class PastContainer extends Component {
     const { hidden } = this.state;
     const pastEntries = [];
 
+<<<<<<< HEAD:client/components/past/PastContainer.jsx
+    if(this.state.submit === true){
+      pastEntries.push(
+        <PastEntry handleSubmit={this.handleSubmit}/>
+      )
+      this.state.addBook = false;
+    }
+    // this.state.cancel === false
+=======
+>>>>>>> dev:client/components/PastContainer.jsx
     if(this.state.added === true) {
       pastEntries.push(
         <BlankPastEntry handleCancel={this.handleCancel} addBookFetch={addBookFetch}/>
