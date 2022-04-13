@@ -7,7 +7,7 @@ import InputAdornment from '@mui/material/InputAdornment';
 import Button from '@mui/material/Button';
 
 
-function BlankEntry(props) {
+function BlankCurrentEntry(props) {
   const [title, setTitle] = useState('');
   // const [titleError, setTitleError] = useState(null);
   const handleTitleChange= (event) => {
@@ -155,7 +155,7 @@ function BlankEntry(props) {
   ) 
 }
 
-export default BlankEntry;
+export default BlankCurrentEntry;
 // {/* <Button onClick= {handleCancel} color="secondary" variant="outlined">Cancel</Button> */}
 // {/* <div>
 //   <Button variant="contained">Submit</Button>

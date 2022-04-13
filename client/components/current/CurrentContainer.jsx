@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import CurrentEntry from './CurrentEntry';
-import BlankEntry from './BlankCurrentEntry';
+import BlankCurrentEntry from './BlankCurrentEntry';
 import Button from '@mui/material/Button';
 import OtherCurrentContainer from './otherCurrentContainer';
 
@@ -12,14 +12,8 @@ class CurrentContainer extends Component {
       view: true,
       submit: false,
       cancel: false,
-<<<<<<< HEAD:client/components/current/CurrentContainer.jsx
       hidden: true,
     }
-=======
-      hidden: true
-    };
-
->>>>>>> dev:client/components/CurrentContainer.jsx
     //bind functions
     this.addBook = this.addBook.bind(this);
     this.viewOtherCurrent = this.viewOtherCurrent.bind(this);
@@ -27,11 +21,7 @@ class CurrentContainer extends Component {
   }
 
   addBook(){
-<<<<<<< HEAD:client/components/current/CurrentContainer.jsx
       this.setState({added: true})
-=======
-    this.setState({ added: true });
->>>>>>> dev:client/components/CurrentContainer.jsx
   }
 
   viewOtherCurrent(){
@@ -55,10 +45,12 @@ class CurrentContainer extends Component {
       )
       this.state.addBook = false;
     }
+
     if(this.state.added === true) {
       currentEntries.push(
-        <BlankEntry handleCancel={this.handleCancel} addBookFetch={addBookFetch} />
+        <BlankCurrentEntry handleCancel={this.handleCancel} addBookFetch={addBookFetch} />
       ) 
+        this.state.added = false;
     }
     for(let i=0; i<this.props.current.length; i++){
       currentEntries.push(

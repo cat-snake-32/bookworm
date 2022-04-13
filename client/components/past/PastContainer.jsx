@@ -19,12 +19,7 @@ class PastContainer extends Component {
     this.viewOtherCurrent = this.viewOtherCurrent.bind(this);
     this.handleCancel = this.handleCancel.bind(this);
   }
- 
-<<<<<<< HEAD:client/components/past/PastContainer.jsx
-//  
 
-=======
->>>>>>> dev:client/components/PastContainer.jsx
   addBook(){
       this.setState({added: true})
   }
@@ -44,25 +39,24 @@ class PastContainer extends Component {
     const { hidden } = this.state;
     const pastEntries = [];
 
-<<<<<<< HEAD:client/components/past/PastContainer.jsx
     if(this.state.submit === true){
       pastEntries.push(
         <PastEntry handleSubmit={this.handleSubmit}/>
       )
       this.state.addBook = false;
     }
-    // this.state.cancel === false
-=======
->>>>>>> dev:client/components/PastContainer.jsx
+    
     if(this.state.added === true) {
       pastEntries.push(
-        <BlankPastEntry handleCancel={this.handleCancel} addBookFetch={addBookFetch}/>
-      ) 
+        <BlankPastEntry handleCancel={this.handleCancel} handleSubmit={this.handleSubmit} addBookFetch={addBookFetch}/>
+      )
+      this.state.added = false;
     }
   
     for(let i=0; i<this.props.past.length; i++){
       pastEntries.push(
         <PastEntry 
+        key={this.props.past[i].readinglistid}
         title= {this.props.past[i].title}
         author= {this.props.past[i].author}
         genre= {this.props.past[i].genre}
