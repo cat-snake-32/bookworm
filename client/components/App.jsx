@@ -101,17 +101,9 @@ addBookFetch(userid, title, author, genre, genreId, status, statusId, recommend,
   
   // render the App, containing the containers representing currently reading, next to read, and past reads.
   render () {
-<<<<<<< HEAD
-
-    if(this.state.hasError) {
-      return <h1>Something went wrong with state, hasError</h1>
-    };
-    
-=======
     // if(this.state.hasError) {
     //   return <h1>Somthing went wrong with state, hasError</h1>
     // };
->>>>>>> dev
     const { current, past, future, otherCurrent, otherPast, otherFuture } = this.state;
     return (
       <div className= "app">

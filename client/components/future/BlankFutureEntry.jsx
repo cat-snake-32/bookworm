@@ -96,7 +96,7 @@ function BlankFutureEntry(props) {
     // args: userId=1, title from state, author from state, genre is not needed
     // genreId gets genre from state, status is not needed, statusId=2 for 'present'
     props.addBookFetch(1, title, author, undefined, genre, undefined, 3);
-    props.handleSubmit();
+    //props.handleSubmit();
     props.handleCancel();
   }
   
